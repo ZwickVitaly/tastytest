@@ -1,0 +1,14 @@
+services:
+
+  bot:
+    container_name: test-bot
+    build:
+      dockerfile: ./Dockerfile
+    command:
+      - "python"
+      - "main.py"
+    restart: on-failure
+    volumes:
+      - ./google-creds/google-credentials.json:/bot/google-credentials.json/
+    env_file:
+      - .env
